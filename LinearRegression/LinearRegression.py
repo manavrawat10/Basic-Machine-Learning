@@ -50,8 +50,7 @@ def main():
 
 	# estimating coefficients
 	b = estimate_coef(x, y)
-	print("Estimated coefficients:\nb_0 = {} \
-		\nb_1 = {}".format(b[0], b[1]))
+	print("Estimated coefficients:\nb_0 = {} \nb_1 = {}".format(b[0], b[1]))
 
 	# plotting regression line
 	plot_regression_line(x, y, b)
