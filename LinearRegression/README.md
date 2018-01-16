@@ -26,16 +26,16 @@ our task is to find the value of b_0 and b_1 for which J(b_0,b_1) is minimum!
 
 Without going into the mathematical details, we present the result here
 
-b_1 = SS_xy / SS_xx
+	b_1 = SS_xy / SS_xx
 
-b_0 = m_y - b_1*m_x
+	b_0 = m_y - b_1*m_x
 
 where SS_xy is the sum of cross-deviations of y and x
 	
-  SS_xy = np.sum(y*x - n*m_y*m_x)
+  	SS_xy = np.sum(y*x - n*m_y*m_x)
 	
 and SS_xx is the sum of squared deviations of x
 
-  SS_xx = np.sum(x*x - n*m_x*m_x)
+  	SS_xx = np.sum(x*x - n*m_x*m_x)
   
 Note: The complete derivation for finding least squares estimates in simple linear regression can be found here.
