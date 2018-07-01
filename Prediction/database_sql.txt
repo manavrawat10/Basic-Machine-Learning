@@ -1,0 +1,47 @@
+CREATE TABLE alerts(
+   id                VARCHAR(36) NOT NULL PRIMARY KEY
+  ,resource          VARCHAR(14) NOT NULL
+  ,event             VARCHAR(33) NOT NULL
+  ,environment       VARCHAR(11) NOT NULL
+  ,severity          VARCHAR(8) NOT NULL
+  ,classification    VARCHAR(12)
+  ,problem_type      VARCHAR(22)
+  ,correlate         VARCHAR(2) NOT NULL
+  ,status            VARCHAR(4) NOT NULL
+  ,service           VARCHAR(9) NOT NULL
+  ,"group"             VARCHAR(17) NOT NULL
+  ,"value"             VARCHAR(30)
+  ,text              VARCHAR(281) NOT NULL
+  ,tags              VARCHAR(32) NOT NULL
+  ,attributes        VARCHAR(226) NOT NULL
+  ,origin            VARCHAR(7) NOT NULL
+  ,"type"              VARCHAR(15) NOT NULL
+  ,create_time       VARCHAR(19) NOT NULL
+  ,timeout           VARCHAR(6) NOT NULL
+  ,raw_data          VARCHAR(653) NOT NULL
+  ,customer          VARCHAR(65) 
+  ,duplicate_count   int  NOT NULL
+  ,"repeat"            VARCHAR(5) NOT NULL
+  ,previous_severity VARCHAR(13) NOT NULL
+  ,trend_indication  VARCHAR(10) NOT NULL
+  ,receive_time      TIMESTAMP NOT NULL
+  ,last_receive_id   VARCHAR(36) NOT NULL
+  ,last_receive_time VARCHAR(19) NOT NULL
+  ,history           VARCHAR(9) NOT NULL
+);
+
+select resource,classification,CAST(receive_time AS DATE) as dt,count(*) from alerts where classification!='' group by dt,resource,classification;
+avmsbusqlvm    | Availability   | 2018-06-29 |     7
+ 10.236.220.117 | Generic        | 2018-06-29 |    12
+ 10.236.220.117 | Capacity       | 2018-06-29 |    11
+ avmsbusqlvm    | Generic        | 2018-06-29 |     7
+ 10.236.220.117 | Availability   | 2018-06-29 |     7
+ avmsbusqlvm    | Capacity       | 2018-06-29 |    18
+ 10.236.220.18  | Performance    | 2018-06-29 |    10
+ 10.57.110.87   | Performance    | 2018-06-29 |     2
+ 10.236.220.117 | Performance    | 2018-06-29 |     4
+ 10.236.220.18  | Availability   | 2018-06-29 |    10
+ 10.57.110.87   | Availability   | 2018-06-29 |     3
+ avmsbusqlvm    | Performance    | 2018-06-29 |     7
+ 10.236.220.18  | Generic        | 2018-06-29 |     5
+ 10.236.220.18  | Capacity       | 2018-06-29 |    12
